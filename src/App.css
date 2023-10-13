@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  border-color: lightgray;
+}
+
+.App {
+  flex-direction: column;
+  justify-content: center;
+  resize: vertical;
+  overflow: auto;
+  display: flex;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dark {
+  background-color: #333;
+  color: #fff;
+}
+.light {
+  background-color: #fff;
+  color: #333;
+}
+
+h1 {
+  padding: 20px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 8vw;
+  border-bottom: thin solid lightgray;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  vertical-align: bottom;
+  padding: 5% 10% 0% 10%;
+}
+
+input {
+  padding: 12px;
+  background-color: white;
+}
+
+input[type="text"] {
+  width: 40%;
+}
+
+input[type="submit"] {
+  cursor: pointer;
+  margin-top: 1px;
+}
+
+input[type="submit"]:hover {
+  border: thin solid black;
+}
+
+input.add-movie {
+  width: 60%;
+}
+
+input.add-button {
+  background-color: rgb(96, 158, 96);
+  color: white;
+  margin-left: 1%;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style-type: none;
+  padding: 10%;
+  font-size: 3vw;
+}
+
+li {
+  border-width: thin;
+  border-style: solid;
+  padding: 10%;
+}
+
+p {
+  padding: 2% 1% 0% 12%;
+}
