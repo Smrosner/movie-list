@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const path = require("path");
-const db = require("./db");
+const db = require("./queries.js");
 
 const PORT = 3001 || process.env.PORT;
 
@@ -11,12 +11,11 @@ app.use(express.json());
 
 app.use(express.static("dist"));
 
-// ROUTES
-app.post("/movies", db.createMovie); // create movie
-app.get("/movies", db.getMovies); // get all movies
-app.get("/movies/:id", db.getMovie); //  get a movie
-app.put("/movies/:id", db.updateMovie); // update a movie
-app.delete('/movies/:id', db.deleteMovie) // delete a movie
+app.get("/movies", db.getMovies);
+app.get("/movies/:id", db.getMovie);
+app.post("/movies", db.createMovie);
+app.put("/movies/:id", db.updateMovie);
+app.delete("/movies/:id", db.deleteMovie);
 
 app.get("/", (req, res) => {
   res.send("Hello from server port 3001");
