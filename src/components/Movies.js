@@ -3,11 +3,17 @@ import Movie from "./Movie";
 
 function Movies({ movies }) {
   return (
-    <ul>
-      {movies.map((movie) => (
-        <Movie key={movie.movie_id} movie={movie} />
-      ))}
-    </ul>
+    <>
+      {movies.length > 0 ? (
+        <ul>
+          {movies.map((movie) => (
+            <Movie key={String(movie.movie_id)} movie={movie} />
+          ))}
+        </ul>
+      ) : (
+        <p>Movie(s) not found</p>
+      )}
+    </>
   );
 }
 

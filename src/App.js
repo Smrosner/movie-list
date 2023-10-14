@@ -30,8 +30,7 @@ function App() {
     );
 
     if (!movieAlreadyPresent) {
-      const addId = movies.length + 1;
-      addMovie && setMovies([{ title: addMovie, movie_id: addId }, ...movies]);
+      addMovie && setMovies([...movies, { title: addMovie }]);
       setMoviePresentMessage("");
     } else {
       setMoviePresentMessage("This Movie is Already Listed");
@@ -64,11 +63,7 @@ function App() {
         setSearchMovie={setSearchMovie}
         movies={movies}
       />
-      {filteredMovies.length > 0 ? (
-        <Movies movies={filteredMovies} />
-      ) : (
-        <p>Movie(s) not found</p>
-      )}
+      <Movies movies={filteredMovies} />
     </div>
   );
 }
