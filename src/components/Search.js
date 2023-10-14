@@ -1,9 +1,9 @@
 import React from "react";
 
-function Search({ searchMovie, setSearchInput, movies }) {
+function Search({ searchMovie, setSearchMovie, movies }) {
   const handleChange = (e) => {
     e.preventDefault();
-    setSearchInput(e.target.value);
+    setSearchMovie(e.target.value);
   };
 
   const handleSubmit = (e) => {

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Movies from "./components/Movies";
 import Search from "./components/Search";
 import AddMovie from "./components/AddMovie";
@@ -16,6 +17,13 @@ function App() {
     document.body.className = theme;
   }, [theme]);
 
+  useEffect(() => {
+    axios
+      .get("/movies")
+      .then((response) => setMovies(response.data))
+      .catch((error) => console.error());
+  }, []);
+
   const addsMovies = (addMovie) => {
     const movieAlreadyPresent = movies.some(
       (movie) => movie.title.toLowerCase() === addMovie.toLowerCase()
@@ -23,7 +31,7 @@ function App() {
 
     if (!movieAlreadyPresent) {
       const addId = movies.length + 1;
-      addMovie && setMovies([{ title: addMovie, id: addId }, ...movies]);
+      addMovie && setMovies([{ title: addMovie, movie_id: addId }, ...movies]);
       setMoviePresentMessage("");
     } else {
       setMoviePresentMessage("This Movie is Already Listed");

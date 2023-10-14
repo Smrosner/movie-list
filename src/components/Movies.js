@@ -2,11 +2,10 @@ import React from "react";
 import Movie from "./Movie";
 
 function Movies({ movies }) {
-  console.log("movies in movies", movies);
   return (
     <ul>
       {movies.map((movie) => (
-        <Movie key={movie.id} movie={movie} />
+        <Movie key={movie.movie_id} movie={movie} />
       ))}
     </ul>
   );
